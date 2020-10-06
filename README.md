@@ -1,13 +1,13 @@
 # Greendeck assignment
 
-```
-Download this repository
 
-drag and drop it in Docker
-or
-you can use online docker 
-https://www.docker.com/101-tutorial
-```
+`Download this repository`
+
+`drag and drop it in Docker`
+`or`
+`you can use online docker`
+`https://www.docker.com/101-tutorial`
+
 ## Docker command
 
 ```
