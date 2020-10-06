@@ -1,12 +1,12 @@
 # Greendeck assignment
 
 
-`Download this repository`
+-`Download this repository`
 
-`drag and drop it in Docker`
-`or`
-`you can use online docker`
-`https://www.docker.com/101-tutorial`
+-`drag and drop it in Docker`
+-`or`
+-`you can use online docker`
+-`https://www.docker.com/101-tutorial`
 
 ## Docker command
 
@@ -24,6 +24,5 @@ cd Greendeck
 ls
 ```
 - `you are able to see all the files in the directory`
-```
-docker built -t flaskapp:latest .
+- `docker built -t flaskapp:latest .`
 ```
