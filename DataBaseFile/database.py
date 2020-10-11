@@ -14,3 +14,19 @@ for i in enumerate(a):
 def client():
     # returning a client
     return mongo_obj
+
+
+# db = mongo_obj["Greendeck_SE_Assignment_Task_1"]
+# collection = db["Data"]
+
+# dbs = list(collection.find({}))
+
+# print(dbs[0])
+'''
+with open("Greendeck SE Assignment Task 1.json") as file:
+    file_data = json.load(file)
+
+file_data[0]['_id'] = 1
+
+print(file_data[0]['_id'])
+'''

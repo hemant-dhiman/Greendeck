@@ -31,7 +31,7 @@ for i in range(0, 5000):
     file_data[i]['_id'] = i
 
 # count the total entries
-count = mongo_obj["Greendeck_SE_Assignment_Task_1"]["Data"].count_documents({})
+count = collection.count_documents({})
 
 if count < 5000:
     if isinstance(file_data, list):
@@ -48,7 +48,7 @@ else:
 def get_data():
     with open(app_obj.root_path + '/README.md', 'r') as mrkdwn:
         md = mrkdwn.read()
-    return markdown.markdown(md)
+        return markdown.markdown(md)
     # return 'hello api'
 
 

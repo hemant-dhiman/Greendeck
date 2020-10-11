@@ -10,7 +10,7 @@
 
 ## Unzip project in Docker
 
-```
+```text
 unzip Greendeck.zip
 cd Greendeck
 ls
@@ -18,16 +18,19 @@ ls
 
 ## Dockerfile content
 
-```
+```text
 FROM python:alpine3.7
 
 COPY . /app
+
 WORKDIR /app
 
 RUN pip install -r requirements.txt
+
 EXPOSE 5000
 
 ENTRYPOINT ["python]
+
 CMD ["app.py"]
 
 ```
@@ -113,3 +116,77 @@ db.collection.deleteMany(       # collection
     { status: "rejected" }      # delete filter
 )
 ```
+# Operations
+
+**List all data**
+
+`GET /database`
+- `200 OK` on success
+```json
+[
+  {
+    "_id": 1,
+    "name" : "Jellycat Blossom Tulip Bunny Grabber, Pink",
+    "brand_name": "jellycat",
+    "regular_price_value": 12,
+    "offer_price_value": 12,
+    "currency": "GBP",
+    "classification_l1": "baby & child",
+    "classification_l2": "soft toys",
+    "classification_l3": "",
+    "classification_l4": "",
+    "image_url": "https://johnlewis.scene7.com/is/image/JohnLewis/237070760?"
+  }
+]
+``` 
+
+**Entry**
+
+`POST /new_entry`
+
+- '201 Created' on success
+##### return
+```json
+{
+    "_id": 1,
+    "name" : "Jellycat Blossom Tulip Bunny Grabber, Pink",
+    "brand_name": "jellycat",
+    "regular_price_value": 12,
+    "offer_price_value": 12,
+    "currency": "GBP",
+    "classification_l1": "baby & child",
+    "classification_l2": "soft toys",
+    "classification_l3": "",
+    "classification_l4": "",
+    "image_url": "https://johnlewis.scene7.com/is/image/JohnLewis/237070760?"
+ }
+```
+
+**Fetching data**
+
+`GET /database/<identifier>`
+
+##### return 
+- `404 Not Found` if the id data not exist
+- `200 OK` on success
+```json
+{
+    "_id": 1,
+    "name" : "Jellycat Blossom Tulip Bunny Grabber, Pink",
+    "brand_name": "jellycat",
+    "regular_price_value": 12,
+    "offer_price_value": 12,
+    "currency": "GBP",
+    "classification_l1": "baby & child",
+    "classification_l2": "soft toys",
+    "classification_l3": "",
+    "classification_l4": "",
+    "image_url": "https://johnlewis.scene7.com/is/image/JohnLewis/237070760?"
+ }
+```
+***Deleting data***
+
+`DELETE /database/<identifier>`
+#####return
+- `404 Not Found` if the id data not exist
+- `204 No content` Success but return nothing
