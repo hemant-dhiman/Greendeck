@@ -1,28 +1,44 @@
 # Greendeck assignment
 
-
 -`Download this repository`
 
--`drag and drop it in Docker`
--`or`
--`you can use online docker`
--`https://www.docker.com/101-tutorial`
+-`drag and drop it in Docker` -`or` -`you can use online docker` -`https://labs.play-with-docker.com/`
 
-## Docker command
+## Unzip project in Docker
 
 ```
-from alpine:latest
-Run apk add --no-cache python3-dev \
-    && pip3 install --upgrade pip
-```
-
-
-```
-
 unzip Greendeck.zip
 cd Greendeck
 ls
 ```
-- `you are able to see all the files in the directory`
-- `docker built -t flaskapp:latest .`
+
+## Docker command
+
+```
+FROM python:alpine3.7
+
+COPY . /app
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+EXPOSE 5000
+
+ENTRYPOINT ["python]
+CMD ["app.py"]
+
+```
+
+## Building a DockerImage file
+
+```
+- `you are able to see all the files in the directory by ls command`
+- `now run following commands`
+
+- `sudo docker build --tag greendeck_1 .`
+```
+
+## Running the Dockerimage file
+
+```
+sudo docker run --name greendeck_1 -p 5000:5000 greendeck_1
 ```
