@@ -1,8 +1,8 @@
 import threading
 import webbrowser
 import pymongo
-
-from flask import Flask
+from pymongo import MongoClient
+from flask import Flask, request
 import json
 from bson import json_util
 import markdown
@@ -53,14 +53,33 @@ def get_data():
 
 
 # view database
-@app_obj.route("/database", methods=["GET"])
+@app_obj.route("/database", methods=["GET"])  # get all the data from the collection
 def data():
     dbs = list(collection.find({}))
     return json.dumps(dbs, default=json_util.default)
 
-# if __name__ == '__main__':
-#   app_obj.run(debug=True)
-#   port = 5000
-#   url = "http://127.0.0.1:{0}".format(port)
-#   threading.Timer(1.25, lambda: webbrowser.open(url)).start()
-#   app_obj.run(debug=False)
+
+# view single entry
+@app_obj.route("/database/id/<int:i_d>/", methods=["GET"])  # get one data in the collection
+def one_data(i_d):
+    dbs = collection.find_one(
+        {"_id": int(i_d)}
+    )
+    return str(dbs)
+
+
+@app_obj.route("/newdata", methods=["POST"])
+def new():
+    new_data = request.json
+    # count the latest id
+    ids = collection.count_documents({})
+
+    d = collection.find_one(
+        {"_id": int(new_data["_id"])}
+    )
+    if d is None:
+        new_data["_id"] = ids + 1  # give new_entry _id attribute a unique value
+        collection.insert_one(new_data)
+        return {"Inserted": str(new_data)}, 200
+    else:
+        return {"Message": "Id Already exist " + str(d)}

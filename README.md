@@ -38,10 +38,11 @@ CMD ["app.py"]
 ## Building a DockerImage file
 
 ```
-- `you are able to see all the files in the directory by 'ls' command`
-- `now run following commands`
+you are able to see all the files in the directory by 'ls' command
 
-- `sudo docker build --tag greendeck_1 .`
+now run following commands
+
+sudo docker build --tag greendeck_1 .
 ```
 
 ## Running the Dockerimage file
@@ -144,7 +145,7 @@ db.collection.deleteMany(       # collection
 
 `POST /new_entry`
 
-- '201 Created' on success
+- `201 Created` on success
 ##### return
 ```json
 {
@@ -164,7 +165,7 @@ db.collection.deleteMany(       # collection
 
 **Fetching data**
 
-`GET /database/<identifier>`
+`GET /database/id/<int-parameter>`
 
 ##### return 
 - `404 Not Found` if the id data not exist
