@@ -65,7 +65,10 @@ def one_data(i_d):
     dbs = collection.find_one(
         {"_id": int(i_d)}
     )
-    return str(dbs)
+    if dbs is not None:
+        return str(dbs)
+    else:
+        return {"Message": "Not Found"}, 404
 
 
 @app_obj.route("/newdata", methods=["POST"])
@@ -80,6 +83,10 @@ def new():
     if d is None:
         new_data["_id"] = ids + 1  # give new_entry _id attribute a unique value
         collection.insert_one(new_data)
-        return {"Inserted": str(new_data)}, 200
+        return {"Inserted": str(new_data)}, 201
     else:
         return {"Message": "Id Already exist " + str(d)}
+
+# update
+
+# delete

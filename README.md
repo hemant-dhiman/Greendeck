@@ -143,9 +143,9 @@ db.collection.deleteMany(       # collection
 
 **Entry**
 
-`POST /new_entry`
+`POST /newdata`
 
-- `201 Created` on success
+- `201 Inserted` on success
 ##### return
 ```json
 {
