@@ -100,4 +100,11 @@ def data_update(i_d, name):
 # delete
 @app_obj.route("/remove/id/<int:i_d>", methods=["DELETE"])
 def data_remove(i_d):
-    return str(i_d)
+    d = collection.find_one(
+        {"_id": int(i_d)}
+    )
+    if d is not None:
+        collection.remove({"_id": int(i_d)})
+        return {"Message": "Deleted " + str(d)}, 200
+    else:
+        return {"Message": "id {} does't exist!".format(i_d)}

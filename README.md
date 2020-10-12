@@ -195,13 +195,13 @@ db.collection.deleteMany(       # collection
 
 ##### return
 - `200 OK` Updated
-- `Id` Already Exist
+- `Id` Already Exists
 
 
 ***Deleting data***
 
 `DELETE /database/<identifier>`s
 
-#####return
+##### return
 - `404 Not Found` if the id data not exist
 - `204 No content` Success but return nothing
