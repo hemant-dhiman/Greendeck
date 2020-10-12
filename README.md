@@ -19,6 +19,8 @@ ls
 ## Dockerfile content
 
 ```text
+**just for reference don't use this commands in docker**
+**move forward to next section (Building a DockerImage file)**
 FROM python:alpine3.7
 
 COPY . /app
@@ -39,6 +41,9 @@ CMD ["app.py"]
 
 ```
 you are able to see all the files in the directory by 'ls' command
+
+you should see following files
+"DataBaseFile     Dockerfile       README.md        app.py           requirement.txt"
 
 now run following commands
 
