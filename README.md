@@ -144,8 +144,8 @@ db.collection.deleteMany(       # collection
 **Entry**
 
 `POST /newdata`
-
 - `201 Inserted` on success
+
 ##### return
 ```json
 {
@@ -165,7 +165,8 @@ db.collection.deleteMany(       # collection
 
 **Fetching data**
 
-`GET /database/id/<int-parameter>`
+`GET /database/id/<int: i_d>`
+- `i_d` integer type
 
 ##### return 
 - `404 Not Found` if the id data not exist
@@ -185,9 +186,22 @@ db.collection.deleteMany(       # collection
     "image_url": "https://johnlewis.scene7.com/is/image/JohnLewis/237070760?"
  }
 ```
+
+***Update***
+`UPDATE /update/id/<int:i_d>/<string:name>`
+
+- `i_d` integer value
+- `name` String value
+
+##### return
+- `200 OK` Updated
+- `Id` Already Exist
+
+
 ***Deleting data***
 
-`DELETE /database/<identifier>`
+`DELETE /database/<identifier>`s
+
 #####return
 - `404 Not Found` if the id data not exist
 - `204 No content` Success but return nothing

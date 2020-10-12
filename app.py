@@ -1,7 +1,3 @@
-import threading
-import webbrowser
-import pymongo
-from pymongo import MongoClient
 from flask import Flask, request
 import json
 from bson import json_util
@@ -87,6 +83,21 @@ def new():
     else:
         return {"Message": "Id Already exist " + str(d)}
 
+
 # update
+@app_obj.route("/update/id/<int:i_d>/<string:name>", methods=["PUT"])
+def data_update(i_d, name):
+    d1 = collection.find_one(
+        {"_id": int(i_d)}
+    )
+    if d1 is not None:
+        d = collection.update_one({"_id": int(i_d)}, {"$set": {"name": str(name)}})
+        return {"Message": "updated " + str(d)}, 200
+    else:
+        return {"Message": "id {} does't exist!".format(i_d)}
+
 
 # delete
+@app_obj.route("/remove/id/<int:i_d>", methods=["DELETE"])
+def data_remove(i_d):
+    return str(i_d)
