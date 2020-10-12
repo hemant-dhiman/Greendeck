@@ -29,7 +29,7 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-ENTRYPOINT ["python]
+ENTRYPOINT ["python"]
 
 CMD ["app.py"]
 
@@ -94,8 +94,7 @@ sudo docker run --name greendeck_1 -p 5000:5000 greendeck_1
 ***UPDATE operation***
 - method used
 1. db.collection.updateOne({}) # update only one instance
-2. db.collection.updateMany({}) # update multiple instance
-3. db.collection.replaceOne({}) # replace perticullar instance
+2. db.collection.replaceOne({}) # replace perticullar instance
 
 *format*
 ```text
@@ -108,13 +107,12 @@ db.collection.updateMany(           # collection
 
 ***DELETE opration***
 - method used
-1. db.collection.deleteOne()
-2. db.collection.deleteMany()
+1. db.collection.remove({})
 
 *format*
 ```txt
-db.collection.deleteMany(       # collection
-    { status: "rejected" }      # delete filter
+db.collection.remove(       # collection
+    { "_id": 37 }           # delete filter
 )
 ```
 # Operations
@@ -200,7 +198,7 @@ db.collection.deleteMany(       # collection
 
 ***Deleting data***
 
-`DELETE /database/<identifier>`s
+`/remove/id/<int:i_d>`
 
 ##### return
 - `404 Not Found` if the id data not exist

@@ -108,3 +108,8 @@ def data_remove(i_d):
         return {"Message": "Deleted " + str(d)}, 200
     else:
         return {"Message": "id {} does't exist!".format(i_d)}
+
+
+if __name__ == '__main__':
+    print("Application started!")
+    app_obj.run(host="0.0.0.0", port=5000, debug=True)
