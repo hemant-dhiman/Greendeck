@@ -204,7 +204,7 @@ db.collection.remove(       # collection
 
 ***Deleting data***
 
-`/remove/id/<int:i_d>`
+`DELETE /remove/id/<int:i_d>`
 
 ##### return
 - `404 Not Found` if the id data not exist
