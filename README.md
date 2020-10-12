@@ -191,6 +191,7 @@ db.collection.remove(       # collection
 ```
 
 ***Update***
+
 `UPDATE /update/id/<int:i_d>/<string:name>`
 
 - `i_d` integer value
